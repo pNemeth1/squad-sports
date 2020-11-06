@@ -1,0 +1,36 @@
+.searchresult-container{
+    margin-bottom: 2rem;
+    .event-card {
+        background-size: cover;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        border-radius: 5px;
+        border: 2px solid #7bbda6;
+        text-align: center;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        .placehold {
+            // height: 1rem;
+            background-color: black;
+            margin-bottom: 0.5rem;
+        }
+        .card-header {
+            display: flex;
+            border-bottom: 1px solid black;
+            padding: 1rem;
+            .header-container {
+                padding: 1rem;
+            }
+            h3 {
+                color: white;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        .card-body {
+            margin-bottom: 0.5rem;
+        }
+    }
+}

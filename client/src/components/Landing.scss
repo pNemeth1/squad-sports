@@ -1,0 +1,29 @@
+.landing-container {
+    margin-top: 1rem;
+    min-height: 40rem;
+    width: auto;
+    background-size: cover;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    opacity: 0.7;
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+    .item {
+        max-width: 60%;
+        background-color: grey;
+        border-radius: 5px;
+        border: 2px solid #7bbda6;
+        text-align: center;
+        padding: 1rem;
+        h1 {
+            color: white;
+        }
+        h3 {
+            color: white;
+        }
+    }
+}

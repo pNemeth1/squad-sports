@@ -1,0 +1,18 @@
+.user-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .item {
+        margin-top: 2rem;
+        min-width: 80%;
+        background-color: grey;
+        border-radius: 5px;
+        border: 2px solid #7bbda6;
+        text-align: center;
+        padding: 2rem;
+        max-width: 60%
+    }
+    .image {
+        width: 50%
+    }
+}

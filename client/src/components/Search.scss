@@ -1,0 +1,39 @@
+.overview-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+
+    .item-container {
+        margin-top: 2rem;
+        min-width: 60%;
+        background-color: grey;
+        border-radius: 5px;
+        border: 2px solid #7bbda6;
+        text-align: center;
+        padding: 2rem;
+        label {
+            color: white;
+        }
+
+        &.link {
+            margin-bottom: 2rem;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 1rem;
+        }
+        
+        .create-button {
+            margin-top: 1rem;
+            background-color: #7bbda6;
+            color: white;
+        }
+    }
+}
+
+.u-hide {
+    display: none;
+}
+
