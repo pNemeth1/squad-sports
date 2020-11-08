@@ -133,7 +133,7 @@ const UserProfile: React.FC = () => {
             <div className="header-container">
                 <div className="item">
                     
-                    <h1 className="ui header" style={{ color: 'white' }}>{profile.firstName} {profile.lastName}</h1>
+                    <h1 className="ui header ui" style={{ color: 'white' }}>{profile.firstName} {profile.lastName}</h1>
                     <img className="ui image fluid" alt="profile-pic" src={profile.image ? profile.image.meta_data.path : ''} />
                     <button className="ui button white" onClick={openModal}>Edit Profile Pic</button>
                 </div>
