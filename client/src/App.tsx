@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Profile from './components/Profile';
 import Squads from './components/Squads';
 import UserProfile from './components/UserProfile';
+import FileUpload from './components/FileUpload';
 
 
 import AuthContext from './contexts/authContext';
@@ -38,6 +39,7 @@ const App = () => {
           {/* <Route path="/create_event" component={ShowEventCreate} auth={auth} /> */}
           <Route path="/profile/:id" component={Profile} auth={auth} />
           <Route path="/profile" component={UserProfile} auth={auth} />
+          <Route path="/fileUpload" component={FileUpload} auth={auth} />
           <Footer />
         </AuthContext.Provider >
       </BrowserRouter>

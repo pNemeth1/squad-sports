@@ -39,7 +39,7 @@ module.exports = app => {
         });
     });
 
-    app.post('/api/get_stories', jsonParser, (req, res) => {
+    app.post('/api/get_events', jsonParser, (req, res) => {
         
         Event.find({city: req.body.city, sports: req.body.sports})
         .sort({date:'desc'})
@@ -51,7 +51,7 @@ module.exports = app => {
         })
     });
 
-    app.get('/api/get_userstories', (req, res) => {
+    app.get('/api/get_userevents', (req, res) => {
         Event.find({squadUserId: req.user.squadId})
         .then((result) => {
             res.send(result);

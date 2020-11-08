@@ -16,7 +16,6 @@ const Squads: React.FC = () => {
     const [cityTerm, setCityTerm] = useState('')
     const [sportsTerm, setsportsTerm] = useState('')
 
-    console.log(squadsProps)
     return (
         <div className="overview-container background-container" style={{ backgroundImage:`url(${Background})`}}>
             <div className={activeItem === 1 ? '' : 'u-hide'} style={{width: '60%'}}>
@@ -25,8 +24,6 @@ const Squads: React.FC = () => {
             <div className={activeItem === 2 ? '' : 'u-hide'} style={{width: '60%'}}>
                 <ShowEventCreate setActiveItem={setActiveItem} activeItem={activeItem} setSquadsProps={setSquadsProps} squadsProps={squadsProps} setCityTerm={setCityTerm} />
             </div>
-                
-
         </div>
     )
     

@@ -2,21 +2,21 @@ import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-const fetchData = async () => {
+const fetchData = async (): Promise<any> => {
     let result;
     try {
-        result = await axios.get('/api/get_userstories')
+        result = await axios.get('/api/get_userevents')
     } catch (e) {
         console.log(e);
     }
     return result;
 }
 
-const useProfile = () => {
-    const [events, setEvents] = useState();
+const useProfile = (): {events: object} => {
+    const [events, setEvents] = useState<[]>([]);
 
     useEffect(() => {
-        const getStories = async () => {
+        const getStories = async (): Promise<void> => {
             await fetchData().then((result) => {
                 setEvents(result.data);
             })

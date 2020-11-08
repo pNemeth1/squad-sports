@@ -50,7 +50,7 @@ const Overview: React.FC<SearchProps> = ({ setActiveItem, setSquadsProps, squads
 
     const { cities, sports } = useOptions();
     const { state, onHandleSubmit, onHandleChange, showError } = useForm();
-    const params = useParams()
+    const params = useParams();
 
 
     if (!cities) { return <></> };

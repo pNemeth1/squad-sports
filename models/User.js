@@ -7,8 +7,16 @@ const userSchema = new Schema({
   lastName: String,
   image: String,
   googleId: String,
-  image: String,
-  squadId: String, // cause the Id proved by google changes! So better have this Id set up!
+  image: {
+    meta_data:{}
+  },
+  squadId: String, // cause the Id provided by google changes! So better have this Id set up!
 });
 
 mongoose.model('users', userSchema);
+
+
+const fileSchema = new mongoose.Schema({
+    meta_data:{}
+});
+

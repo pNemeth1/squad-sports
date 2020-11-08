@@ -6,8 +6,12 @@ type APIResponse = {
     _id: string,
     googleId: string;
     firstName: string;
-    LastName: string;
-    image: string;
+    lastName: string;
+    image: {
+        meta_data: {
+            path: string;
+        }
+    };
     squadId: string
 }
 
@@ -15,14 +19,21 @@ const authContext = {
     _id: '',
     googleId: '',
     firstName: '',
-    LastName: '',
-    image: '',
+    lastName: '',
+   image: {
+    meta_data: {
+        path: ''
+    }
+   },
     squadId: ''
 }
 
 
-const useAuth = (): APIResponse => {
-    const [auth, setAuth] = useState<APIResponse>(authContext);
+const useAuth = (): {
+    profile: APIResponse,
+    setAuth: Function
+} => {
+    const [profile, setAuth] = useState<APIResponse>(authContext);
 
     useEffect((): void => {
         const getAuth = async (): Promise<void> => {
@@ -33,7 +44,7 @@ const useAuth = (): APIResponse => {
           getAuth();
         }, []);
 
-    return auth;
+    return {profile, setAuth};
 }
 
 export default useAuth;

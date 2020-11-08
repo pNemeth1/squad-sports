@@ -9,6 +9,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 require('./models/User');
 require('./models/Event');
+require('./models/File');
 require('./services/passport');
 
 
@@ -36,12 +37,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/', indexRouter);
 
 
 require('./routes/authRoutes')(app);
 require('./routes/eventRoutes')(app);
+require('./routes/userRoutes')(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -53,7 +53,6 @@ const useForm = (): {
 
   const [showError, setShowError] = useState<boolean>(false);
   const [squadId, setSquadId] = useState<string>('');
-  const history = useHistory();
 
 
   const handleSearchEvents = async (searchFormData: searchFormData, url: string, setSquadsProps: Function): Promise<void> => {
@@ -102,7 +101,7 @@ const useForm = (): {
       } else {
         searchFormData.city = state.city;
         searchFormData.sports = state.sports;
-        url = '/api/get_stories';
+        url = '/api/get_events';
         console.log('exec')
         handleSearchEvents(searchFormData, url, setSquadsProps);
         
