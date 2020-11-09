@@ -20,7 +20,11 @@ interface squad {
     desc: string,
     user: string,
     _id: string
-    image: string,
+    image: {
+        meta_data: {
+            path: string
+        }
+    }
 }
 
 
@@ -30,13 +34,15 @@ const renderSquadList = (squads) => {
     let imagePath: string = '';
     if (squads && squads.data) {
         list = squads.data.map((squad: squad) => {
-            imagePath = squad.image ? squad.image : 'https://via.placeholder.com/50'
+            console.log(squad)
+            imagePath = squad.image && squad.image.meta_data ? squad.image.meta_data.path : 'https://via.placeholder.com/50'
             return (
                 <div key={squad._id} className="event-card" style={{ backgroundImage: `url(${Background})` }}>
-                    <div className="placehold"><h3 className="ui header" style={{color: 'white'}}>{squad.title}</h3></div>
+                    
+                    <div className="placehold"><Link to={`/squad/${squad._id}`}><h3 className="ui header" style={{color: 'white'}}>{squad.title}</h3></Link></div>
                     <div className="card-header">
                         <Link to={`/profile/${squad.user}`}>
-                        <img className="ui image fluid" src={imagePath} alt="user-profile-pic"/>
+                        <img className="ui image fluid" src={imagePath} alt="user-profile-pic" style={{maxWidth: '5rem', height: 'auto'}}/>
                         </Link>
                         
                         <div className="header-container">

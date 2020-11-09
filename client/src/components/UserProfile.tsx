@@ -54,9 +54,6 @@ const UserProfile: React.FC = () => {
 
     if (!profile) { return <></> }
 
-    console.log(profile);
-    console.log(typeof events);
-
     // const imageUrl: string = profile.image ? profile.image : 'https://via.placeholder.com/200';
 
     const openModal = () => {
@@ -85,7 +82,10 @@ const UserProfile: React.FC = () => {
   
         axios.post('/api/image_upload', formData , config)
             .then((response) => {
-                setAuth(response);
+                console.log(response);
+                setAuth(response.data);
+                console.log('auth set')
+                closeModal();
             }).catch((error) => {
                 console.log(error);
         });
@@ -125,16 +125,18 @@ const UserProfile: React.FC = () => {
                 <div>
                 <form onSubmit={onFormSubmit} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                     <input type="file" className="" name="myImage" onChange={onChange} />
-                    {console.log(file)}
                 <button className="upload-button ui button white" type="submit">Go!</button>
                 </form>
                 </div>
             </Modal>
             <div className="header-container">
-                <div className="item">
-                    
-                    <h1 className="ui header ui" style={{ color: 'white' }}>{profile.firstName} {profile.lastName}</h1>
-                    <img className="ui image fluid" alt="profile-pic" src={profile.image ? profile.image.meta_data.path : ''} />
+                <div className="item-a"> 
+                                <h1 className="ui header ui" style={{ color: 'white' }}>{profile.firstName} {profile.lastName}</h1>
+                                </div>
+                    <div className="item-b">
+                        <img className="ui image fluid" alt="profile-pic" src={profile.image ? profile.image.meta_data.path : ''} style={{height: '100%', width: '100%'}} />
+                    </div>
+                    <div  className="item-c">
                     <button className="ui button white" onClick={openModal}>Edit Profile Pic</button>
                 </div>
             </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
+import { Link } from 'react-router-dom';
+
 
 const customStyles = {
     content: {
@@ -24,15 +26,23 @@ const ShowProfileInfo: React.FC<ShowProfileInfoProps> = ({events}) => {
     const [modalIsOpen, setIsOpen] = useState(false);
     let subtitle;
 
+    if (!events) { return <></> }
+
     const eventList = (events) => {
+        console.log(events);
         let list;
-        if (events) {
+        if (events.length) {
             list = events.map((squad) => {
-                return <li>{squad.title}</li>
+                console.log(squad);
+                return <Link to={`/squad/${squad._id}`} key={squad._id}><li>{squad.title}</li></Link> 
             });
+        } else {
+            list = <div>Create an Event!</div>
         }
         return list;
     }
+
+    
 
     
     const openModal = () => {

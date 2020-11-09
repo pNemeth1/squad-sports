@@ -13,15 +13,16 @@ const Header: React.FC = () => {
 
 
     const renderAuth = (auth) => {
+        console.log(auth)
         if (auth === null) {
             return;
-        } else if (auth) {
+        } else if (auth && auth.profile) {
             return (
                 <p className="ui item">
                     <a href="/api/logout">Logout</a>
                 </p>
             );
-        } else if (!auth) {
+        } else  {
             return (
                 <Link to="/login">
                     <p className="ui item">
@@ -51,7 +52,7 @@ const Header: React.FC = () => {
                         Find Your Squad!
                 </p>
                 </Link>
-                <Link to='/profile'>
+                <Link to='/user_profile'>
                     <p className="item">
                         Profile
                 </p>

@@ -5,7 +5,8 @@ import axios from 'axios';
 const fetchData = async (): Promise<any> => {
     let result;
     try {
-        result = await axios.get('/api/get_userevents')
+        result = await axios.get('/api/get_userevents');
+        console.log(result)
     } catch (e) {
         console.log(e);
     }
@@ -13,15 +14,15 @@ const fetchData = async (): Promise<any> => {
 }
 
 const useProfile = (): {events: object} => {
-    const [events, setEvents] = useState<[]>([]);
+    const [events, setEvents] = useState({});
 
     useEffect(() => {
-        const getStories = async (): Promise<void> => {
+        const getEvents = async (): Promise<void> => {
             await fetchData().then((result) => {
                 setEvents(result.data);
             })
         };
-        getStories();
+        getEvents();
     }, []);
 
     return {events};

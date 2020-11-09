@@ -14,7 +14,6 @@ const Squads: React.FC = () => {
     const [squadsProps, setSquadsProps] = useState<squads>({data:[]});
     const [activeItem, setActiveItem] = useState(1);
     const [cityTerm, setCityTerm] = useState('')
-    const [sportsTerm, setsportsTerm] = useState('')
 
     return (
         <div className="overview-container background-container" style={{ backgroundImage:`url(${Background})`}}>

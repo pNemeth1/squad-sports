@@ -53,11 +53,51 @@ module.exports = app => {
 
     app.get('/api/get_userevents', (req, res) => {
         Event.find({squadUserId: req.user.squadId})
+        .populate('user')
         .then((result) => {
             res.send(result);
         })
         .catch((e) => {
             console.log(e);
         })
+    });
+
+    app.post('/api/get_event', jsonParser, (req, res) => {
+        Event.findOne({_id: req.body.id})
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+    });
+
+    app.post('/api/add_comment', jsonParser, (req, res) => { 
+        let newComment;
+        console.log(req.user.squadId)
+        console.log(req.user.image)
+        Event.findOne({_id: req.body.id})
+        .populate('user')
+        .then((event) => {
+            console.log(event)
+            newComment = {
+                commentBody: req.body.comment,
+                commentUserId: req.user.squadId,
+                commentUserImage: req.user.image,
+                commentUserFirstName: req.user.firstName
+            };
+
+            console.log(newComment)
+
+            event.comments.push(newComment);
+            event.save()
+            .then((event) => {
+                res.send(event);
+            });
+
+        })
+        .catch((e) => {
+            console.log(e);
+        });
     });
 }

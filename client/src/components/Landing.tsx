@@ -26,7 +26,7 @@ const Landing: React.FC<LandingProps> = ({ auth }) => {
                 <h3 className="ui header">This App will help you to find likeminded Sport Maniacs who are searching for a Group or a Partner to Sport away! </h3>
         </div>
         <div className="landing item header">
-            <Link to="/search">
+            <Link to="/squads">
             <button className="ui button white">Get Started!</button>
             </Link>
            

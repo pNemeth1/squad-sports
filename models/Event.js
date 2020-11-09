@@ -8,7 +8,9 @@ const eventSchema = new Schema({
   title: String,
   desc: String,
   squadUserId: String,
-  image: String,
+  image: {
+    meta_data:{}
+  },
   comments: [{
     commentBody: {
       type: String,
@@ -21,7 +23,12 @@ const eventSchema = new Schema({
     commentUser:{
       type: Schema.Types.ObjectId,
       ref:'users'
-    }
+    },
+    commentUserImage: {
+      meta_data: {}
+  },
+  commentUserId: String,
+  commentUserFirstName: String
   }],
   user:{
     type: Schema.Types.ObjectId,

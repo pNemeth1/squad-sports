@@ -34,7 +34,6 @@ module.exports = app => {
 
             user.save()
             .then((user) => {
-                console.log(user);
                 res.send(user);
             })
             .catch((e) => {
